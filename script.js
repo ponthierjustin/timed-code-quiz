@@ -1,33 +1,63 @@
-const questions = document.getElementById("#questions");
-const choiceOne = document.getElementById("#choice1");
-const choiceTwo = document.getElementById("#choice2");
-const choiceThree = document.getElementById("#choice3");
-const choiceFour = document.getElementById("#choice4");
-const startButton = document.getElementById("#start-button");
+var startBtn = document.getElementById("start-button")
+var questionBox = document.getElementById("box-cont")
+var questionEl = document.getElementById("questions")
+var choicesBox = document.getElementById("choices")
 
-
-
-
-
-
-
-
-
-
-
-let question = [
+var questions = [
     {
-        questions: "Choose a built-in method used in JavaScript",
-        choiceOne: ""
+        question: 'Commonly used data types DO NOT include:',
+        choices: {
+            1: 'strings',
+            2: 'booleans',
+            3: 'alerts',
+            4: 'numbers',
+        }
 
     }
 ]
 
 
+// calls start of quiz. hiding start btn then presenting questions from array.
+function startQuiz() {
+    startBtn.classList.add('hide')
+
+    currentQ = 0
+    questionBox.classList.remove('hide')
+    newQ()
+
+
+}
+// function is grabbing question from array
+function newQ() {
+    showQ([currentQ])
+}
+
+// function pulls questions into HTML DOM
+function showQ(question) {
+    questionEl.innerText = question.question
+
+}
+
+function answerSel() {
 
 
 
-/* // start button function
-startButton.addEventListener("click",)
-// start function starts quiz
-function startQuiz(); */
+}
+
+
+
+
+
+
+startBtn.addEventListener("click", startQuiz)
+
+
+
+
+
+
+
+
+
+
+
