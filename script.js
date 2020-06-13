@@ -1,14 +1,14 @@
-var startBtn = document.getElementById("#start-button");
-var quiz = document.getElementById("#quiz");
-var questionEl = document.getElementById("#question");
-var choiceOne = document.getElementById("#A");
-var choiceTwo = document.getElementById("#B");
-var choiceThree = document.getElementById("#C");
-var choiceFour = document.getElementById("#D");
-var counter = document.getElementById("#counter");
-var score = document.getElementById("#finalScore");
-var correctAnswer = document.getElementById("#correct");
-var wrongAnswer = document.getElementById("#wrong");
+var startBtn = document.getElementById("start-button");
+var quiz = document.getElementById("quiz");
+var questionEl = document.getElementById("question");
+var choiceOne = document.getElementById("A");
+var choiceTwo = document.getElementById("B");
+var choiceThree = document.getElementById("C");
+var choiceFour = document.getElementById("D");
+var counter = document.getElementById("counter");
+var score = document.getElementById("finalScore");
+var correctAnswer = document.getElementById("correct");
+var wrongAnswer = document.getElementById("wrong");
 
 var questions = [
     {
@@ -24,7 +24,7 @@ var questions = [
 var questionIn = questions.length - 1;
 var currentQuestion = 0;
 var questionT = 60;
-var count = 0;
+var count = 60;
 
 function countDown() {
   if (count <= questionT) {
