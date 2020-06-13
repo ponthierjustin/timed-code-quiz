@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code Quiz</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
     <link href="style.css" rel="stylesheet" />
   </head>
 
@@ -18,21 +12,24 @@
       <h1>Code Quiz</h1>
 
       <button id="start-button" class="btn">Start Quiz</button>
-
-        
-        
-        <!-- holding all content for questions and chocies -->
-        <div id="box-cont" class="hide">
-        <div id="questions">Question</div>
-          <button class="chocies">A</button>
-          <button class="chocies">B</button>
-          <button class="choices">C</button>
-          <button class="choices">D</button>
+      <!-- holding all content for questions and chocies -->
+      <div id="quiz" class="hide">
+        <div id="question">Question</div>
+        <div id="timer">
+          <div id="counter">60</div>
         </div>
+        <div class="choices" id="A" onclick="checkAnswer('A')">A</div>
+        <div class="choices" id="B" onclick="checkAnswer('B')">B</div>
+        <div class="choices" id="C" onclick="checkAnswer('C')">C</div>
+        <div class="choices" id="D" onclick="checkAnswer('D')">D</div>
       </div>
+      <hr />
+      <div id="correct" class="hide">Correct</div>
+      <div id="wrong" class="hide">Wrong</div>
+      <div id="finalScore" class="hide" display="none"></div>
     </div>
 
-    
+
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
