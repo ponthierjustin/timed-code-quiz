@@ -11,15 +11,40 @@ var correctAnswer = document.getElementById("correct");
 var wrongAnswer = document.getElementById("wrong");
 
 var questions = [
-    {
-      question: "Commonly used data types DO NOT include:",
-      choiceOne: "strings",
-      choiceTwo: "booleans",
-      choiceThree: "alerts",
-      choiceFour: "numbers",
-      correct: "D",
-    },
-  ];
+  {
+    question: "Commonly used data types DO NOT include:",
+    choiceOne: "strings",
+    choiceTwo: "booleans",
+    choiceThree: "alerts",
+    choiceFour: "numbers",
+    correct: "D",
+  },
+  {
+    question: "The condition in an if/else statement is enclosed with ___.",
+    choiceOne: "quotes",
+    choiceTwo: "curly brackets",
+    choiceThree: "parentheses",
+    choiceFour: "square brackets",
+    correct: "B",
+  },
+  {
+    question: "Arrays in JS can be used to store __.",
+    choiceOne: "numbers and strings",
+    choiceTwo: "other arrays",
+    choiceThree: "booleans",
+    choiceFour: "all of the above",
+    correct: "D",
+  },
+  {
+    question:
+      "String values must be enclosed within ___ when being assigned to variables.",
+    choiceOne: "commas",
+    choiceTwo: "curly brackets",
+    choiceThree: "quotes",
+    choiceFour: "parentheses",
+    correct: "C",
+  },
+];
 
 var questionIn = questions.length - 1;
 var currentQuestion = 0;
@@ -32,7 +57,7 @@ function countDown() {
     count--;
   } else {
     count = 0;
-    clearInterval();
+    scoreFinal();
   }
 }
 
@@ -42,16 +67,12 @@ var timeStart;
 function startQuiz() {
   startBtn.classList.add("hide");
   countDown();
-  timeStart = setInterval(countDown,1000);
+  timeStart = setInterval(countDown, 1000);
   showQ();
   quiz.classList.remove("hide");
 }
-// function is grabbing question from array
-function newQ() {
-  showQ([currentQ]);
-}
 
-// function pulls questions into HTML DOM
+// function pulls questions into HTML DOM to render the question
 function showQ() {
   var q = questions[currentQuestion];
   question.innerHTML = "<p>" + q.question + "<p>";
@@ -60,33 +81,29 @@ function showQ() {
   choiceThree.innerHTML = q.choiceThree;
   choiceFour.innerHTML = q.choiceFour;
 }
-function answerSel(answer) {
+
+function checkAnswer(answer) {
   if (questions[currentQuestion].correct == answer) {
     answerCorrect();
-  } else {
-    answerWrong();
-  }
-  if (currentQuestion < questionIn) {
     currentQuestion++;
+    showQ();
+  } else if (questions[currentQuestion].correct != answer) {
+    answerWrong();
   } else {
-    clearInterval();
+      scoreFinal();
   }
 }
 
 function answerCorrect() {
-  document
-    .getElementById(currentQuestion)
-    .correctAnswer.classList.remove("hide");
+  correctAnswer.classList.remove("hide");
 }
 function answerWrong() {
-  document.getElementById(currentQuestion).wrongAnswer.classList.remove("hide");
+  wrongAnswer.classList.remove("hide");
 }
 
-function scoreFinal(){
-    score.style.display="block";
-    
+function scoreFinal() {
+  quiz.classList.add("hide");
+  score.classList.remove("hide");
 }
-
 
 startBtn.addEventListener("click", startQuiz);
-
