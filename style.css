@@ -2,3 +2,18 @@
     display: none;
 }
 
+.btn {
+    padding: 50px;
+
+    margin: 10px;
+}
+
+.card {
+    padding: 50px;
+
+    margin: 10px;
+}
+
+.body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}

@@ -1,4 +1,4 @@
-var startBtn = document.getElementById("start-button");
+var startBtn = document.getElementById("close");
 var quiz = document.getElementById("quiz");
 var questionEl = document.getElementById("question");
 var choiceOne = document.getElementById("A");
@@ -55,10 +55,9 @@ function countDown() {
   if (count <= questionT) {
     counter.innerHTML = count;
     count--;
-  } else {
-    count = 0;
+  } /* else if (count = 0); {
     scoreFinal();
-  }
+  } */
 }
 
 // calls start of quiz. hiding start btn then presenting questions from array.
@@ -90,7 +89,7 @@ function checkAnswer(answer) {
   } else if (questions[currentQuestion].correct != answer) {
     answerWrong();
   } else {
-      scoreFinal();
+      return;
   }
 }
 
@@ -98,8 +97,8 @@ function answerCorrect() {
   correctAnswer.classList.remove("hide");
 }
 function answerWrong() {
-  wrongAnswer.classList.remove("hide");
-}
+    wrongAnswer.classList.remove("hide");
+    }
 
 function scoreFinal() {
   quiz.classList.add("hide");
